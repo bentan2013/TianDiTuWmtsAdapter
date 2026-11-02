@@ -6,6 +6,40 @@
 
 支持矢量、影像、地形晕渲及其中文注记、境界叠加层，共 7 类、14 个官方服务入口，不是任意网址代理。
 
+## 视频教程
+
+[![ArcGIS Earth 加天地图报错？不改程序，三步搞定](docs/images/video-cover.png)](https://www.bilibili.com/video/BV1GU4w6aE78/)
+
+B 站观看：[ArcGIS Earth 加天地图报错？不改程序，三步搞定](https://www.bilibili.com/video/BV1GU4w6aE78/)
+
+想在 ArcGIS Earth 里用天地图的底图和中文注记，直接添加部分服务可能会报错。原因是服务描述里要求填经纬度的一栏，部分服务填成了以米为单位的坐标。视频演示不改程序，用本服务（视频里叫“中转站”）三步用上：
+
+1. **申请 Key**：在[天地图开发资源网站](https://lbs.tianditu.gov.cn/)注册认证，进控制台创建应用，使用你自己的 Key。
+2. **启动中转站**：下载本仓库代码，装好 Python 3.10 或更新版本，在 PowerShell 中运行 `.\start.ps1`，粘贴 Key，窗口不要关。
+3. **加进 ArcGIS Earth**：确认使用 Web Mercator，依次选择“添加数据 → 从路径添加 → OGC WMTS”，底图和注记分别添加，注记放在上方。
+
+如果 PowerShell 提示禁止运行脚本，在解压好的文件夹中运行下面这条命令，只对这次启动生效：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\start.ps1
+```
+
+| 视频章节 | 内容 |
+| --- | --- |
+| 00:00 | 开场 |
+| 00:20 | 为什么会报错 |
+| 01:08 | 第一步：申请 Key |
+| 01:28 | 第二步：启动中转站 |
+| 02:25 | 第三步：加进 ArcGIS Earth |
+| 03:25 | 换影像和地形 |
+| 03:57 | 使用提醒和排查顺序 |
+
+一图看懂：
+
+![ArcGIS Earth 加载天地图：三步流程、三组服务搭配和报错原因](docs/images/video-guide.png)
+
+视频演示的是在自己电脑上使用，地图要联网从天地图获取，不是离线方案。公开发布前的核实事项见[第 8 节](#8-使用与合规提醒)。
+
 ## 1. 本机启动
 
 先安装 Python 3.10 或更新版本，在 PowerShell 中进入本文件所在目录，然后运行：
